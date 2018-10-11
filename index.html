@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <title>Meteo</title>
+        <!--CSS aggiuntivo-->
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container-fluid dashboard">
+            <div class="row">
+                <div class="col-md-10">
+                    <h1 id="title" class="text-center"><!--City--></h1>
+                </div>
+                <div class="col-md-2">
+                    <input id="lang-switch" type="checkbox" checked data-toggle="toggle" data-onstyle="default">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-10">
+                    <h3 class="text-center" id="description"></h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12" id="main-box">
+
+                </div>
+            </div>
+        </div>
+        <footer>
+            <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+            <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+            <!--<script src="https://maps.google.com/maps/api/js?key=AIzaSyDN3i9sT2kos4kQ6MMzuKGxVTh_kCZ2epU"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/gmaps.js/0.4.25/gmaps.min.js"></script>-->
+            <script src="IpLookup.js"></script>
+            <script src="script.js"></script>
+        </footer>
+    </body>
+</html>
