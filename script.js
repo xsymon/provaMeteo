@@ -1,18 +1,21 @@
+//Global variables declaraton
+var currentUnit = "metric",
+	lang = "IT",
+	cachedTemplate;
+
+//Main
+weatherService.lookupCall(function(lookupObj){
+	weatherCall(lookupObj.latitude,lookupObj.longitude,lookupObj.country_code,lookupObj.city,currentUnit);
+});
+
 //Switch setting
-$("#lang-switch").bootstrapToggle({ 
+$("#lang-switch").bootstrapToggle({
 	on:"IT",
 	off:"EN"
 });
 $('#unit-switch').bootstrapToggle({
      on: 'Celsius',
      off: 'Kelvin'
-});
-
-//Main
-currentUnit = "metric";
-lang = "IT";
-weatherService.lookupCall(function(lookupObj){
-	weatherCall(lookupObj.latitude,lookupObj.longitude,lookupObj.country_code,lookupObj.city,currentUnit);
 });
 
 //Event section
@@ -37,7 +40,6 @@ $("#unit-switch").change(function(){
 		weatherCall(lookupObj.latitude,lookupObj.longitude,lang,lookupObj.city,currentUnit);
 	});
 });
-
 
 //Utils section
 function capitalizeFirst(str){

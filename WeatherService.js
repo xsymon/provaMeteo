@@ -1,8 +1,8 @@
-var weatherService = function(successFn){  
+var weatherService = function(successFn){ 
 	var	unit="metric",
-		lat,
-		lng,
-		city;
+	lat,
+	lng,
+	city;
 
 	function lookupCall(successFn){
 		RestModule.callRestService("http://api.ipstack.com/check?access_key=69831435fe030d57806f11e629aff841", successFn);
@@ -24,39 +24,39 @@ function weatherCall(lat,lng,lang,city,unit){
 		}
 
 		italianLabels = '{'+
-			'"temp":"Temperatura",'+
-			'"value1":'+'"'+json.main.temp+'",'+
-			'"unitMarker":'+'"'+unitMarker+'",'+
-			'"pressure":"Pressione",'+
-			'"value2":'+'"'+json.main.pressure+'",'+
-			'"unitMarker":'+'"'+unitMarker+'",'+
-			'"humidity":"Umidità",'+
-			'"value3":'+'"'+json.main.humidity+'",'+
-			'"unitMarker":'+'"'+unitMarker+'",'+
-			'"min_temp":"Temperatura minima",'+
-			'"value4":'+'"'+json.main.temp_min+'",'+
-			'"unitMarker":'+'"'+unitMarker+'",'+
-			'"max_temp":"Temperatura massima",'+
-			'"value5":'+'"'+json.main.temp_max+'",'+
-			'"unitMarker":'+'"'+unitMarker+'"'+
+		'"temp":"Temperatura",'+
+		'"value1":'+'"'+json.main.temp+'",'+
+		'"unitMarker":'+'"'+unitMarker+'",'+
+		'"pressure":"Pressione",'+
+		'"value2":'+'"'+json.main.pressure+'",'+
+		'"unitMarker":'+'"'+unitMarker+'",'+
+		'"humidity":"Umidità",'+
+		'"value3":'+'"'+json.main.humidity+'",'+
+		'"unitMarker":'+'"'+unitMarker+'",'+
+		'"min_temp":"Temperatura minima",'+
+		'"value4":'+'"'+json.main.temp_min+'",'+
+		'"unitMarker":'+'"'+unitMarker+'",'+
+		'"max_temp":"Temperatura massima",'+
+		'"value5":'+'"'+json.main.temp_max+'",'+
+		'"unitMarker":'+'"'+unitMarker+'"'+
 		'}';
 
 		englishLabels = '{'+
-			'"temp":"Temperature",'+
-			'"value1":'+'"'+json.main.temp+'",'+
-			'"unitMarker":'+'"'+unitMarker+'",'+
-			'"pressure":"Pressure",'+
-			'"value2":'+'"'+json.main.pressure+'",'+
-			'"unitMarker":'+'"'+unitMarker+'",'+
-			'"humidity":"Humidity",'+
-			'"value3":'+'"'+json.main.humidity+'",'+
-			'"unitMarker":'+'"'+unitMarker+'",'+
-			'"min_temp":"Lowest temperature",'+
-			'"value4":'+'"'+json.main.temp_min+'",'+
-			'"unitMarker":'+'"'+unitMarker+'",'+
-			'"max_temp":"Highest temperature",'+
-			'"value5":'+'"'+json.main.temp_max+'",'+
-			'"unitMarker":'+'"'+unitMarker+'"'+
+		'"temp":"Temperature",'+
+		'"value1":'+'"'+json.main.temp+'",'+
+		'"unitMarker":'+'"'+unitMarker+'",'+
+		'"pressure":"Pressure",'+
+		'"value2":'+'"'+json.main.pressure+'",'+
+		'"unitMarker":'+'"'+unitMarker+'",'+
+		'"humidity":"Humidity",'+
+		'"value3":'+'"'+json.main.humidity+'",'+
+		'"unitMarker":'+'"'+unitMarker+'",'+
+		'"min_temp":"Lowest temperature",'+
+		'"value4":'+'"'+json.main.temp_min+'",'+
+		'"unitMarker":'+'"'+unitMarker+'",'+
+		'"max_temp":"Highest temperature",'+
+		'"value5":'+'"'+json.main.temp_max+'",'+
+		'"unitMarker":'+'"'+unitMarker+'"'+
 		'}';
 		
 		if(lang == "IT"){
@@ -68,21 +68,15 @@ function weatherCall(lat,lng,lang,city,unit){
 		$("#title").text(city);
 		$("#description").text(capitalizeFirst(json.weather[0].description));
 		
-		var template = $("#template").html();
-        var rendered = Mustache.render(template,JSON.parse(data));
-        $('#main-box').html(rendered);
-		
-
-		//Title and Description setting
-		/*$("#title").text(city);
-		$("#description").text(capitalizeFirst(json.weather[0].description));
-		//Set main-box information
-		$("#main-box").html(
-			"Temperatura: "+json.main.temp+unitMarker+
-			" </br> Pressione: "+json.main.pressure+
-			" </br> Umidità: "+json.main.humidity+
-			" </br> Temperatura minima: "+json.main.temp_min+unitMarker+
-			" </br> Temperatura massima: "+json.main.temp_max+unitMarker
-		);*/
-	});
+		var template;
+		if(cachedTemplate == undefined){
+			template = $("#template").html();
+			cachedTemplate = template;
+			var rendered = Mustache.render(template,JSON.parse(data));
+			$('#main-box').html(rendered);
+		}else{
+			var rendered = Mustache.render(cachedTemplate,JSON.parse(data));
+			$('#main-box').html(rendered);
+		}	
+	})
 }
