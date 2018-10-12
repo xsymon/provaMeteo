@@ -23,7 +23,7 @@ function weatherCall(lat,lng,lang,city,unit){
 			unitMarker = "°K"
 		}
 
-		italianLabels = '{'+
+		/*italianLabels = '{'+
 			'"temp":"Temperatura",'+
 			'"value1":'+'"'+json.main.temp+'",'+
 			'"unitMarker":'+'"'+unitMarker+'",'+
@@ -63,18 +63,18 @@ function weatherCall(lat,lng,lang,city,unit){
 			data = italianLabels;
 		}else{
 			data = englishLabels;
-		}
+		}*/
 
 		$("#title").text(city);
 		$("#description").text(capitalizeFirst(json.weather[0].description));
 		
-		var template = $("#template").html();
+		/*var template = $("#template").html();
         var rendered = Mustache.render(template,JSON.parse(data));
-        $('#main-box').html(rendered);
+        $('#main-box').html(rendered);*/
 		
 
 		//Title and Description setting
-		/*$("#title").text(city);
+		$("#title").text(city);
 		$("#description").text(capitalizeFirst(json.weather[0].description));
 		//Set main-box information
 		$("#main-box").html(
@@ -83,6 +83,6 @@ function weatherCall(lat,lng,lang,city,unit){
 			" </br> Umidità: "+json.main.humidity+
 			" </br> Temperatura minima: "+json.main.temp_min+unitMarker+
 			" </br> Temperatura massima: "+json.main.temp_max+unitMarker
-		);*/
+		);
 	});
 }
