@@ -1,4 +1,4 @@
-var RestModule = function(){
+var RestModule = function(){ 
 
 	function callRestService(jsonURL,successFn){
 		$.getJSON(jsonURL,successFn)

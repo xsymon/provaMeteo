@@ -1,5 +1,5 @@
 //Switch setting
-$("#lang-switch").bootstrapToggle({
+$("#lang-switch").bootstrapToggle({ 
 	on:"IT",
 	off:"EN"
 });
