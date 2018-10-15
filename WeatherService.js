@@ -2,7 +2,8 @@ var weatherService = function(successFn){
 	var	unit="metric",
 	lat,
 	lng,
-	city;
+	city,
+	link;
 
 	function lookupCall(successFn){
 		RestModule.callRestService("http://api.ipstack.com/check?access_key=69831435fe030d57806f11e629aff841", successFn);
@@ -15,8 +16,13 @@ var weatherService = function(successFn){
 }();
 
 function weatherCall(lat,lng,lang,city,unit){
-	RestModule.callRestService("http://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+lng+"&APPID=58ad25c4cad94fc8e2f07596966b4d2d&units="+unit+"&lang="+lang,function(json){
-
+	if(lat,lng != undefined){
+		link = "http://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+lng+"&APPID=58ad25c4cad94fc8e2f07596966b4d2d&units="+unit+"&lang="+lang;
+	}else if(city != undefined){
+		link = "http://api.openweathermap.org/data/2.5/weather?APPID=58ad25c4cad94fc8e2f07596966b4d2d&units="+unit+"&lang="+lang+"&q="+city;
+	}
+	
+	RestModule.callRestService(link,function(json){
 		if(unit == "metric"){
 			unitMarker = "°C"
 		}else{

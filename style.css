@@ -1,6 +1,13 @@
 #header{
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  padding-top:1%;
+  padding-bottom:1%;
 }
+
+h1#title.text-center{
+	margin:0;
+}
+
 #main-box{
 	border-radius:2px;
 	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
