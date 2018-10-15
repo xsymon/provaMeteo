@@ -21,3 +21,40 @@ h1#title.text-center{
 	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)
 }
 
+/*Hidden Mobile Elements*/
+@media(min-width: 770px){
+	#mobile-menu,
+	#mobile-button{
+		display:none;
+	}
+}
+
+
+@media(max-width: 769px){
+	/*Hidden Desktop Element*/
+	#desktop-search,
+	#desktop-location{
+		display:none;
+	}
+
+	#mobile-menu{
+		display: none;
+		height:15%;
+		width:100%;
+		
+	}
+
+	/*#mobile-button{
+		display: block;
+		position: fixed;
+		top:1%;
+	}*/
+	#mobile-search{
+		margin-top:2%;
+	}
+	#mobile-location.col-xs-2{
+		margin-top:2%;
+		padding-left:0;
+	}
+
+}

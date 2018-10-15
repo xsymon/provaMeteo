@@ -86,6 +86,12 @@ $("#location-button").on('click',function(){
 	});
 });
 
+$("#mobile-button").on('click',function(){
+	$("#mobile-menu").slideToggle();
+});
+
+
+
 //Utils section
 function capitalizeFirst(str){
 	return str.charAt(0).toUpperCase() + str.substr(1);
